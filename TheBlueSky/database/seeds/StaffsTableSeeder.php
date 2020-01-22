@@ -11,75 +11,75 @@ class StaffsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('staff')->insert([
+        DB::table('staffs')->insert([
             'name'=>' Don',
             'firstname'=>'Sean',
-            'adress'=>'rue A',
+            'houseAdress'=>'rue A',
             'postalCode'=>'69100',
             'phone'=>'065321845',
             'salary'=>'3000',
             'email'=>'sd@gmail.com',
-            'password'=>'chefone',
+            'password'=>bcrypt('chefone'),
             'role_id'=>'1',
         ]);
 
-        DB::table('staff')->insert([
+        DB::table('staffs')->insert([
             'name'=>' Don',
             'firstname'=>'Paul',
-            'adress'=>'rue A',
+            'houseAdress'=>'rue A',
             'postalCode'=>'69100',
             'phone'=>'065568845',
             'salary'=>'3000',
             'email'=>'pd@gmail.com',
-            'password'=>'cheftwo',
+            'password'=>bcrypt('cheftwo'),
             'role_id'=>'1',
         ]);
 
-        DB::table('staff')->insert([
+        DB::table('staffs')->insert([
             'name'=>' Don',
             'firstname'=>'Hélene',
-            'adress'=>'rue A',
+            'houseAdress'=>'rue A',
             'postalCode'=>'69100',
             'phone'=>'065967845',
             'salary'=>'3000',
             'email'=>'hd@gmail.com',
-            'password'=>'staffone',
+            'password'=>bcrypt('staffone'),
             'role_id'=>'2',
         ]);
 
-        DB::table('staff')->insert([
+        DB::table('staffs')->insert([
             'name'=>' Don',
             'firstname'=>'Stéphane',
-            'adress'=>'rue A',
+            'houseAdress'=>'rue A',
             'postalCode'=>'69100',
             'phone'=>'065322175',
             'salary'=>'3000',
             'email'=>'std@gmail.com',
-            'password'=>'stafftwo',
+            'password'=>bcrypt('stafftwo'),
             'role_id'=>'2',
         ]);
 
-        DB::table('staff')->insert([
+        DB::table('staffs')->insert([
             'name'=>' Easter',
             'firstname'=>'Cloé',
-            'adress'=>'rue A',
+            'houseAdress'=>'rue A',
             'postalCode'=>'69100',
             'phone'=>'065327935',
             'salary'=>'3000',
             'email'=>'ce@gmail.com',
-            'password'=>'staffthree',
+            'password'=>bcrypt('staffthree'),
             'role_id'=>'3',
         ]);
 
-        DB::table('staff')->insert([
+        DB::table('staffs')->insert([
             'name'=>' Easter ',
             'firstname'=>'Jeanne',
-            'adress'=>'rue A',
+            'houseAdress'=>'rue A',
             'postalCode'=>'69100',
             'phone'=>'065358465',
             'salary'=>'3000',
             'email'=>'je@gmail.com',
-            'password'=>'staffour',
+            'password'=>bcrypt('staffour'),
             'role_id'=>'3',
         ]);
 

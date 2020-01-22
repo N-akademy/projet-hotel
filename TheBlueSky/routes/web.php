@@ -18,3 +18,17 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/rooms', 'RoomController@showRooms' )->name('rooms');
+
+Route ::group(['middleware'=>['auth']],function(){
+    Route::get('/createRoom', 'RoomController@create' )->name('createRoom');
+    Route::post('/storeRoom', 'RoomController@store' )->name('storeRoom');
+    Route::post('/editRoom/{id}', 'RoomController@edit' )->name('editRoom');
+    Route::post('/updateRoom/{id}', 'RoomController@update' )->name('updateRoom');
+    Route::post('/deleteRoom/{id}', 'RoomController@delete' )->name('deleteRoom');
+
+
+
+});
+

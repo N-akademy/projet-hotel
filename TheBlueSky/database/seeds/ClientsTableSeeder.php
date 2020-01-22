@@ -11,10 +11,10 @@ class ClientsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('client')->insert([
+        DB::table('clients')->insert([
             'name'=>' Takabashi',
             'firstname'=>'Myo',
-            'adress'=>'rue A',
+            'houseAdress'=>'rue A',
             'postalCode'=>'69100',
             'phone'=>'065321845',
             'email'=>'n@gmail.com',
@@ -22,10 +22,10 @@ class ClientsTableSeeder extends Seeder
             'role_id'=>'4',
         ]);
 
-        DB::table('client')->insert([
+        DB::table('clients')->insert([
             'name'=>' Sommeil',
             'firstname'=>'Charlie',
-            'adress'=>'rue b',
+            'houseAdress'=>'rue b',
             'postalCode'=>'95000',
             'phone'=>'065321845',
             'email'=>'v@gmail.com',
@@ -33,10 +33,10 @@ class ClientsTableSeeder extends Seeder
             'role_id'=>'4',
         ]);
 
-        DB::table('client')->insert([
+        DB::table('clients')->insert([
             'name'=>' Thompson',
             'firstname'=>'Mercy',
-            'adress'=>'rue c',
+            'houseAdress'=>'rue c',
             'postalCode'=>'13005',
             'phone'=>'065321845',
             'email'=>'g@gmail.com',
@@ -44,10 +44,10 @@ class ClientsTableSeeder extends Seeder
             'role_id'=>'4',
         ]);
 
-        DB::table('client')->insert([
+        DB::table('clients')->insert([
             'name'=>'Skye ',
             'firstname'=>'Achibald',
-            'adress'=>'rue d',
+            'houseAdress'=>'rue d',
             'postalCode'=>'31600',
             'phone'=>'065321845',
             'email'=>'a@gmail.com',

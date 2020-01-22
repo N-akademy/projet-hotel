@@ -16,10 +16,10 @@ class CreateStaffsTable extends Migration
         Schema::create('staffs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('prénom');
-            $table->string('adresse');
-            $table->string('code postal');
-            $table->integer('téléphone');
+            $table->string('firstname');
+            $table->string('houseAdress');
+            $table->string('postalCode');
+            $table->integer('phone');
             $table->integer('salary');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -27,7 +27,15 @@ class CreateStaffsTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-    }
+
+        Schema::table('staffs', function (Blueprint $table) {
+
+            $table->unsignedBigInteger('role_id');
+    
+            $table->foreign('role_id')->references('id')->on('roles');
+            });
+        } 
+    
 
     /**
      * Reverse the migrations.
