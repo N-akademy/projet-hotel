@@ -4,14 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Rooms extends Model
+class Object extends Model
+
 {
     protected $fillable = 
     [
         'name',
-        'numberRoom',
-        'prices',
-        'type',
-        
+        'prices',  
     ];
 }

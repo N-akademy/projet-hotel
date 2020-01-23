@@ -20,7 +20,7 @@ class StaffsTableSeeder extends Seeder
             'salary'=>'3000',
             'email'=>'sd@gmail.com',
             'password'=>bcrypt('chefone'),
-            'role_id'=>'1',
+            
         ]);
 
         DB::table('staffs')->insert([
@@ -32,7 +32,7 @@ class StaffsTableSeeder extends Seeder
             'salary'=>'3000',
             'email'=>'pd@gmail.com',
             'password'=>bcrypt('cheftwo'),
-            'role_id'=>'1',
+            
         ]);
 
         DB::table('staffs')->insert([
@@ -44,7 +44,7 @@ class StaffsTableSeeder extends Seeder
             'salary'=>'3000',
             'email'=>'hd@gmail.com',
             'password'=>bcrypt('staffone'),
-            'role_id'=>'2',
+            
         ]);
 
         DB::table('staffs')->insert([
@@ -56,7 +56,7 @@ class StaffsTableSeeder extends Seeder
             'salary'=>'3000',
             'email'=>'std@gmail.com',
             'password'=>bcrypt('stafftwo'),
-            'role_id'=>'2',
+            
         ]);
 
         DB::table('staffs')->insert([
@@ -68,7 +68,7 @@ class StaffsTableSeeder extends Seeder
             'salary'=>'3000',
             'email'=>'ce@gmail.com',
             'password'=>bcrypt('staffthree'),
-            'role_id'=>'3',
+            
         ]);
 
         DB::table('staffs')->insert([
@@ -80,7 +80,7 @@ class StaffsTableSeeder extends Seeder
             'salary'=>'3000',
             'email'=>'je@gmail.com',
             'password'=>bcrypt('staffour'),
-            'role_id'=>'3',
+            
         ]);
 
 

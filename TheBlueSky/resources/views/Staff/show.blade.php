@@ -19,42 +19,52 @@
         <th>Email</th>
         <th>Role</th>
 
-        @if(Auth::check())
-            @if(Auth::user()->role=='administator')
-            <th>Modifier</th>
-            <th>Supprimer</th>
-            @endif
-        @endif
+@if(Auth::check())
+    @if(Auth::user()->role=='administator')
+        <th>Modifier</th>
+        <th>Supprimer</th>
+    @endif
+@endif
         
     </tr>
-    @foreach ($rooms as $room )
-        <tr>
+@foreach ($staffs as $staff )
+    <tr>
             
-            <td>{{ $room->name }}</td>
-            <td>{{ $room->firstname }}</td>
-            <td>{{ $room->houseAdress }}</td>
-            <td>{{ $room->postalCode }}</td>
-            <
-            
-            @if(Auth::check())
-                @if(Auth::user()->role=='administator')
-                    <td class="form">
-                    <form action="{{route('editroom',$room->id)}}" method="POST">
-                        @csrf
-                        <input type="hidden"name="room_id" value="{{$room->id}}">
-                        <button class="td" type="submit">Modifier</button>
-                    </form>
-                    </td>
-                    <td class="form">
-                    <form action="{{route('deleteroom',$room->id)}}" method="POST">
-                        @csrf
-                        <input type="hidden"name="room_id" value="{{$room->id}}">
-                        <button class="td" type="submit">Supprimer</button>
-                    </form>
-                    </td>
-                @endif
-            @endif
+        <td>{{ $staff->name }}</td>
+        <td>{{ $staff->firstname }}</td>
+        <td>{{ $staff->houseAdress }}</td>
+        <td>{{ $staff->postalCode }}</td>
+        <td>{{ $staff->phone}}</td>
+        <td>{{ $staff->salary}}</td>
+        <td>{{ $staff->email}}</td>
+        <td>{{ $staff->role->name}}</td>
+@if(Auth::check())
+    @if(Auth::user()->role=='administator')
+        <td class="form">
+            <form action="{{route('editstaff',$staff->id)}}" method="POST">
+                @csrf
+                <input type="hidden"name="staff_id" value="{{$staff->id}}">
+                <button class="td" type="submit">Modifier</button>
+            </form>
+        </td>
+        <td class="form">
+            <form action="{{route('deletestaff',$staff->id)}}" method="POST">
+                @csrf
+                <input type="hidden"name="staff_id" value="{{$staff->id}}">
+                <button class="td" type="submit">Supprimer</button>
+        </form>
+        </td>
+    @endif
+@endif
         </tr>
-    @endforeach
+@endforeach
 </table>
+
+
+
+
+
+
+
+
 @endsection

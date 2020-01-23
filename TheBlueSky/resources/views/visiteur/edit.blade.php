@@ -5,7 +5,7 @@
 
 
 
-<h1>Modification des Chambres</h1>
+
 
 <form action="{{route('updateRoom',$room->id)}}" method="POST">
     @csrf

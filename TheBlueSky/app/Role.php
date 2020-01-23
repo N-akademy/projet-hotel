@@ -6,13 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    public function clients()
+    public function user()
     {
-        return $this->hasMany('App\Clients');
-    }
-
-    public function staffs()
-    {
-        return $this->hasMany('App\Staffs');
-    }
+     return $this->hasmany('App\User');
+ }
 }

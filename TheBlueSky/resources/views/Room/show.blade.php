@@ -3,52 +3,56 @@
 @section('content')
 
 
+<h3> Nos Chambres</h1>
+<p> Voici les differentes chambres proposées dans notre petit hôtel.</p>
 
 
-<h1>Chambres</h1>
 
-<table>
+<table class="table">
+<thead class="thead-light">    
     <tr>
-        
         <th>Nom</th>
         <th>Numero de Chambre</th>
         <th>Prix</th>
         <th>Type</th>
-        @if(Auth::check())
-            @if(Auth::user()->role=='administator')
-            <th>Modifier</th>
-            <th>Supprimer</th>
-            @endif
-        @endif
-        
+@if(Auth::check())
+    @if(Auth::user()->role=='Admin')
+        <th>Modifier</th>
+        <th>Supprimer</th>
+    @endif 
+@else
+        <th>Reserver</th>
+       
+@endif
+
     </tr>
-    @foreach ($rooms as $room )
-        <tr>
-            
-            <td>{{ $room->name }}</td>
-            <td>{{ $room->numberRoom }}</td>
-            <td>{{ $room->prices }}</td>
-            <td>{{ $room->type }}</td>
-            
-            @if(Auth::check())
-                @if(Auth::user()->role=='administator')
-                    <td class="form">
-                    <form action="{{route('editroom',$room->id)}}" method="POST">
-                        @csrf
-                        <input type="hidden"name="room_id" value="{{$room->id}}">
-                        <button class="td" type="submit">Modifier</button>
-                    </form>
-                    </td>
-                    <td class="form">
-                    <form action="{{route('deleteroom',$room->id)}}" method="POST">
-                        @csrf
-                        <input type="hidden"name="room_id" value="{{$room->id}}">
-                        <button class="td" type="submit">Supprimer</button>
-                    </form>
-                    </td>
-                @endif
-            @endif
-        </tr>
+</thead>    
+@foreach ($rooms as $room )
+    <tr>
+        <td>{{ $room->name }}</td>
+        <td>{{ $room->numberRoom }}</td>
+        <td>{{ $room->prices }}</td>
+        <td>{{ $room->type }}</td>
+@if(Auth::check())
+    @if(Auth::user()->role=='Admin')       
+        <td class="form">
+        <form action="{{route('editRoom',$room->id)}}" method="POST">
+            @csrf
+            <input type="hidden"name="room_id" value="{{$room->id}}">
+            <button class="td" type="submit">Modifier</button>
+        </form>
+        </td>
+        <td class="form">
+        <form action="{{route('deleteRoom',$room->id)}}" method="POST">
+            @csrf
+            <input type="hidden"name="room_id" value="{{$room->id}}">
+            <button class="td" type="submit">Supprimer</button>   
+        </form>
+        </td>
+    @endif
+@endif
+    </tr>
     @endforeach
 </table>
+<br><br><br>
 @endsection

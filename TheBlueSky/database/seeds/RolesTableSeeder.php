@@ -16,11 +16,11 @@ class RolesTableSeeder extends Seeder
         ]);
         
         DB::table('roles')->insert([
-            'name'=>'Equipe Accueil', 
+            'name'=>'EquipeAccueil', 
         ]);
 
         DB::table('roles')->insert([
-            'name'=>'Equipe Ménage', 
+            'name'=>'EquipeMénage', 
         ]);
 
         DB::table('roles')->insert([

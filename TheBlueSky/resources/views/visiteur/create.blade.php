@@ -5,7 +5,7 @@
 
 
 
-<h1>Création de chambres</h1>
+
 
 @if ($errors->any())
     <div class="alert alert-danger">

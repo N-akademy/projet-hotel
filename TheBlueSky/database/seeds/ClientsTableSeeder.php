@@ -17,9 +17,9 @@ class ClientsTableSeeder extends Seeder
             'houseAdress'=>'rue A',
             'postalCode'=>'69100',
             'phone'=>'065321845',
-            'email'=>'n@gmail.com',
+            'email'=>'mt@gmail.com',
             'password'=>'bonjour',
-            'role_id'=>'4',
+            
         ]);
 
         DB::table('clients')->insert([
@@ -28,9 +28,9 @@ class ClientsTableSeeder extends Seeder
             'houseAdress'=>'rue b',
             'postalCode'=>'95000',
             'phone'=>'065321845',
-            'email'=>'v@gmail.com',
+            'email'=>'cs@gmail.com',
             'password'=>'bonjour',
-            'role_id'=>'4',
+            
         ]);
 
         DB::table('clients')->insert([
@@ -41,7 +41,7 @@ class ClientsTableSeeder extends Seeder
             'phone'=>'065321845',
             'email'=>'g@gmail.com',
             'password'=>'bonjour',
-            'role_id'=>'4',
+            
         ]);
 
         DB::table('clients')->insert([
@@ -52,7 +52,7 @@ class ClientsTableSeeder extends Seeder
             'phone'=>'065321845',
             'email'=>'a@gmail.com',
             'password'=>'bonjour',
-            'role_id'=>'4',
+            
         ]);
     }
 }

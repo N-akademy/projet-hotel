@@ -4,40 +4,44 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
-use App\Rooms;
+use App\Room;
 
-class RoomsController extends Controller
+class RoomController extends Controller
 {
+    // Pour accéder à la page show.blade.php
+    
     public function showRooms()
     {
         $rooms=Room::All();
-        return view('rooms.show',compact('rooms'));
+        return view('Room.show',compact('rooms'));
     }
 
-    //public function create()
-    //{
-    //    $genre=Genre::All();
-    //    return view('rooms.create',compact('genre'));
-    //}
+    //Pour acceder à la page create.blade.php
+    public function create()
+    {
+        
+        return view('Room.create');
+    }
 
+    // Pour recupérer les données dans la base de données
     public function store(Request $request)
     {
         // Ceci est le validator. Il permettra de valider les informations reçues depuis un formulaire avant de traiter les données. Si une erreur survient, on retourne cette erreur sans exécuter le reste.
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:50|string',
-            'numberRoom' => 'required|max:50|string',
+            'numberRoom' => 'required|integer',
             'prices' => 'required|integer',
-            'type' => 'required|integer|max:4',
+            'type' => 'required|string|max:50',
             
         ]);
 
         if ($validator->fails()) {
-            return redirect('createroom')
+            return redirect('Room.create')
                         ->withErrors($validator)
                         ->withInput();
         } else {
             // On se crée un objet de type room qui utilisera l'hydratation
-            $room = new room([
+            $room = new Room([
                 "name" => $request->name,
                 "numberRoom" => $request->numberRoom,
                 "prices" => $request->prices,
@@ -45,7 +49,7 @@ class RoomsController extends Controller
                 
             ]);
 
-            // Hydratation en base de données et donc insertion du film
+            // Hydratation en base de données et donc insertion de la chambre
             $room->save();
 
             // Redirection automatique à utiliser à chaque envoi de formulaire
@@ -53,16 +57,17 @@ class RoomsController extends Controller
         }
     }
 
-
+    // Pour accéder à la page edit.blade.php
     public function edit($id)
     {
        
         $room= Room::find($id);
 
-        return view('rooms.edit',compact('room'));
+        return view('Room.edit',compact('room'));
 
     }
 
+    // Pour modifier les valeurs dans la base de données
     public function update(Request $request, $id)
     {
 
@@ -77,6 +82,8 @@ class RoomsController extends Controller
 
         return redirect('/rooms');
     }
+
+    //Pour Supprimer une Chambre
     public function delete($id)
     {
         $room= Room::find($id);

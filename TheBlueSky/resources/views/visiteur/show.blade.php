@@ -14,15 +14,21 @@
         <th>Numero de Chambre</th>
         <th>Prix</th>
         <th>Type</th>
+        @if(Auth::check())
+            @if(Auth::user()->role=='administator')
+            <th>Modifier</th>
+            <th>Supprimer</th>
+            @endif
+        @endif
         
     </tr>
     @foreach ($rooms as $room )
         <tr>
             
             <td>{{ $room->name }}</td>
-            <td>{{ $room->director }}</td>
-            <td>{{ $room->duration }}</td>
-            <td>{{ $room->year }}</td>
+            <td>{{ $room->numberRoom }}</td>
+            <td>{{ $room->prices }}</td>
+            <td>{{ $room->type }}</td>
             
             @if(Auth::check())
                 @if(Auth::user()->role=='administator')
@@ -45,4 +51,7 @@
         </tr>
     @endforeach
 </table>
+
+
+
 @endsection

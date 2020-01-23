@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Clients extends Model
+class Staff extends Model
 {
     protected $fillable = 
     [
@@ -13,6 +13,7 @@ class Clients extends Model
         'houseAdress',
         'postalCode',
         'phone',
+        'salary',
         'email',
         'password',
         'role_id',
@@ -35,8 +36,6 @@ class Clients extends Model
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function role()
-    {
-        return $this->belongsTo('App\Role');
-    }
+    
+   
 }
