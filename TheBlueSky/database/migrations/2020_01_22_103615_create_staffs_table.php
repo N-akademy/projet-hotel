@@ -21,15 +21,9 @@ class CreateStaffsTable extends Migration
             $table->string('postalCode');
             $table->integer('phone');
             $table->integer('salary');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
             $table->timestamps();
         });
-
-       
-        } 
+    } 
     
 
     /**

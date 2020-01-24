@@ -18,8 +18,7 @@ class StaffsTableSeeder extends Seeder
             'postalCode'=>'69100',
             'phone'=>'065321845',
             'salary'=>'3000',
-            'email'=>'sd@gmail.com',
-            'password'=>bcrypt('chefone'),
+            
             
         ]);
 
@@ -30,8 +29,6 @@ class StaffsTableSeeder extends Seeder
             'postalCode'=>'69100',
             'phone'=>'065568845',
             'salary'=>'3000',
-            'email'=>'pd@gmail.com',
-            'password'=>bcrypt('cheftwo'),
             
         ]);
 
@@ -42,8 +39,7 @@ class StaffsTableSeeder extends Seeder
             'postalCode'=>'69100',
             'phone'=>'065967845',
             'salary'=>'3000',
-            'email'=>'hd@gmail.com',
-            'password'=>bcrypt('staffone'),
+           
             
         ]);
 
@@ -54,8 +50,7 @@ class StaffsTableSeeder extends Seeder
             'postalCode'=>'69100',
             'phone'=>'065322175',
             'salary'=>'3000',
-            'email'=>'std@gmail.com',
-            'password'=>bcrypt('stafftwo'),
+            
             
         ]);
 
@@ -66,8 +61,7 @@ class StaffsTableSeeder extends Seeder
             'postalCode'=>'69100',
             'phone'=>'065327935',
             'salary'=>'3000',
-            'email'=>'ce@gmail.com',
-            'password'=>bcrypt('staffthree'),
+            
             
         ]);
 
@@ -78,8 +72,7 @@ class StaffsTableSeeder extends Seeder
             'postalCode'=>'69100',
             'phone'=>'065358465',
             'salary'=>'3000',
-            'email'=>'je@gmail.com',
-            'password'=>bcrypt('staffour'),
+            
             
         ]);
 

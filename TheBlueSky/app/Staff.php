@@ -14,9 +14,8 @@ class Staff extends Model
         'postalCode',
         'phone',
         'salary',
-        'email',
-        'password',
-        'role_id',
+        
+        
     ];
     
      /**

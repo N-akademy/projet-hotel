@@ -8,7 +8,7 @@
 
 
 
-<table class="table">
+<table class="table table-bordered">
 <thead class="thead-light">    
     <tr>
         <th>Nom</th>
@@ -16,12 +16,12 @@
         <th>Prix</th>
         <th>Type</th>
 @if(Auth::check())
-    @if(Auth::user()->role=='Admin')
+    @if(Auth::user()->role=='Gérant')
         <th>Modifier</th>
         <th>Supprimer</th>
     @endif 
 @else
-        <th>Reserver</th>
+        <th>Réserver</th>
        
 @endif
 
@@ -34,7 +34,7 @@
         <td>{{ $room->prices }}</td>
         <td>{{ $room->type }}</td>
 @if(Auth::check())
-    @if(Auth::user()->role=='Admin')       
+    @if(Auth::user()->role=='Gérant')       
         <td class="form">
         <form action="{{route('editRoom',$room->id)}}" method="POST">
             @csrf

@@ -13,9 +13,7 @@ class Client extends Model
         'houseAdress',
         'postalCode',
         'phone',
-        'email',
-        'password',
-        'role_id',
+        
     ];
     
      /**

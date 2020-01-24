@@ -17,8 +17,7 @@ class ClientsTableSeeder extends Seeder
             'houseAdress'=>'rue A',
             'postalCode'=>'69100',
             'phone'=>'065321845',
-            'email'=>'mt@gmail.com',
-            'password'=>'bonjour',
+           
             
         ]);
 
@@ -28,8 +27,7 @@ class ClientsTableSeeder extends Seeder
             'houseAdress'=>'rue b',
             'postalCode'=>'95000',
             'phone'=>'065321845',
-            'email'=>'cs@gmail.com',
-            'password'=>'bonjour',
+            
             
         ]);
 
@@ -39,8 +37,6 @@ class ClientsTableSeeder extends Seeder
             'houseAdress'=>'rue c',
             'postalCode'=>'13005',
             'phone'=>'065321845',
-            'email'=>'g@gmail.com',
-            'password'=>'bonjour',
             
         ]);
 
@@ -50,8 +46,7 @@ class ClientsTableSeeder extends Seeder
             'houseAdress'=>'rue d',
             'postalCode'=>'31600',
             'phone'=>'065321845',
-            'email'=>'a@gmail.com',
-            'password'=>'bonjour',
+            
             
         ]);
     }

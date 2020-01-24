@@ -3,17 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
+use App\Room;
+use App\User;
+use App\Staff;
 
 class StaffController extends Controller
 {
     // Pour accéder à la page show.blade.php
-    public function showStaff()
+    public function showStaffs()
     {
-        $staffs=Staff::All();
-        return view('staff.show',compact('staff'));
+        $staffs= Staff::All();
+        $users= User::all();
+        $rooms= Room::all();
+       
+        return view('Staff.show',compact('staffs','users','rooms'));
     }
 
-    
+
+    //Pour acceder à la page create.blade.php
+    public function create()
+    {
+        
+        return view('Staff.create');
+    }
+
     // Pour recupérer les données dans la base de données
     public function store(Request $request)
     {
@@ -21,9 +35,10 @@ class StaffController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:50|string',
             'firstname' => 'required|max:50|string',
-            'prices' => 'required|integer',
-            'type' => 'required|integer|max:4',
-            
+            'houseAdress' => 'required|string|max:50',
+            'postalCode' => 'required|integer|max:4',
+            'phone'=>'require|integer|max:10',
+            'salary' => 'required|integer|max:4',
         ]);
 
         if ($validator->fails()) {
@@ -34,9 +49,11 @@ class StaffController extends Controller
             // On se crée un objet de type staff qui utilisera l'hydratation
             $staff = new Staff([
                 "name" => $request->name,
-                "numberstaff" => $request->numberstaff,
-                "prices" => $request->prices,
-                "type" => $request->type,
+                "firstname" => $request->firstname,
+                "houseAdress" => $request->houseAdress,
+                "postalCode" => $request->postalCode,
+                "phone"=>$request->phone,
+                "salary"=>$request->salary,
                 
             ]);
 
@@ -44,7 +61,7 @@ class StaffController extends Controller
             $staff->save();
 
             // Redirection automatique à utiliser à chaque envoi de formulaire
-            return redirect('/staff');
+            return redirect('/staffs');
         }
     }
 
@@ -54,7 +71,7 @@ class StaffController extends Controller
        
         $staff= Staff::find($id);
 
-        return view('staffs.edit',compact('staff'));
+        return view('Staff.edit',compact('staff'));
 
     }
 
@@ -63,15 +80,17 @@ class StaffController extends Controller
     {
 
         $staff= Staff::find($id);
+       
         $staff->name = $request->name;
-        $staff->numberstaff = $request->numberstaff;
-        $staff->prices = $request->prices;
-        $staff->type = $request->type;
-        
+        $staff->firstname = $request->firstname;
+        $staff->houseAdress = $request->houseAdress;
+        $staff->postalCode = $request->postalCode;
+        $staff->phone= $request->phone;
+        $staff->salary= $request->salary;
 
         $staff->save();
 
-        return redirect('/staff');
+        return redirect('/staffs');
     }
 
     //Pour Supprimer un Employée
@@ -81,7 +100,7 @@ class StaffController extends Controller
         $staff->delete();
 
 
-        return redirect('/staff');
+        return redirect('/staffs');
 
     }
 }

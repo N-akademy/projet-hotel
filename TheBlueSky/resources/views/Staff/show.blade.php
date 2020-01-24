@@ -7,26 +7,24 @@
 
 <h1>Listes des Employées</h1>
 
-<table>
-    <tr>
-        
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Adresse</th>
-        <th>Code Postal</th>
-        <th>Téléphone</th>
-        <th>Salaire</th>
-        <th>Email</th>
-        <th>Role</th>
-
+<table class="table table-bordered">
+    <thead class="thead-light">    
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Adresse</th>
+            <th>Code Postal</th>
+            <th>Téléphone</th>
+            <th>Salaire</th>
 @if(Auth::check())
-    @if(Auth::user()->role=='administator')
-        <th>Modifier</th>
-        <th>Supprimer</th>
+    @if(Auth::user()->role=='Gérant')
+            <th>Modifier</th>
+            <th>Supprimer</th>
     @endif
 @endif
         
-    </tr>
+        </tr>
+    <thead>
 @foreach ($staffs as $staff )
     <tr>
             
@@ -36,19 +34,18 @@
         <td>{{ $staff->postalCode }}</td>
         <td>{{ $staff->phone}}</td>
         <td>{{ $staff->salary}}</td>
-        <td>{{ $staff->email}}</td>
-        <td>{{ $staff->role->name}}</td>
+        
 @if(Auth::check())
-    @if(Auth::user()->role=='administator')
+    @if(Auth::user()->role=='Gérant')
         <td class="form">
-            <form action="{{route('editstaff',$staff->id)}}" method="POST">
+            <form action="{{route('editStaff',$staff->id)}}" method="POST">
                 @csrf
                 <input type="hidden"name="staff_id" value="{{$staff->id}}">
                 <button class="td" type="submit">Modifier</button>
             </form>
         </td>
         <td class="form">
-            <form action="{{route('deletestaff',$staff->id)}}" method="POST">
+            <form action="{{route('deleteStaff',$staff->id)}}" method="POST">
                 @csrf
                 <input type="hidden"name="staff_id" value="{{$staff->id}}">
                 <button class="td" type="submit">Supprimer</button>
